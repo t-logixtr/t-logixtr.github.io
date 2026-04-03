@@ -3,76 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Logix TR | Teknoloji Analiz Merkezi</title>
+    <title>T-Logix TR | Kayıt Terminali</title>
     <style>
-        /* T-Logix Kurumsal Teması */
-        :root { --main-green: #00ff41; --bg-dark: #080808; --card-bg: #121212; }
-        body { background-color: var(--bg-dark); color: #e0e0e0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.6; }
+        :root { --neon-green: #00ff41; --deep-black: #050505; }
+        body { background: var(--deep-black); color: #fff; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
+        .terminal { width: 90%; max-width: 600px; border: 1px solid #222; background: #0a0a0a; padding: 30px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.1); border-radius: 5px; }
+        .header { border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
+        .logo { color: var(--neon-green); font-size: 2rem; font-weight: bold; letter-spacing: 5px; }
+        .status-text { color: #555; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px; }
+        .description { color: #aaa; font-size: 0.9rem; line-height: 1.6; margin: 25px 0; }
         
-        /* Üst Menü ve Logo */
-        header { background: #111; padding: 20px; border-bottom: 2px solid var(--main-green); text-align: center; position: sticky; top: 0; z-index: 100; }
-        .logo { font-size: 2.2rem; font-weight: 800; letter-spacing: 2px; color: var(--main-green); text-transform: uppercase; }
-        .logo span { color: #fff; }
-        .status-bar { font-size: 0.8rem; color: #888; margin-top: 5px; font-family: monospace; }
-        .online-dot { color: var(--main-green); animation: blink 1.5s infinite; }
-
-        /* İçerik Alanı */
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .language-switcher { text-align: right; margin-bottom: 20px; font-size: 0.9rem; font-weight: bold; color: var(--main-green); }
-
-        /* Haber Kartları */
-        .article-card { background: var(--card-bg); border: 1px solid #222; border-radius: 8px; padding: 25px; margin-bottom: 25px; transition: 0.3s; position: relative; overflow: hidden; cursor: pointer; }
-        .article-card:hover { border-color: var(--main-green); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1); }
-        .article-card h2 { color: #fff; margin: 10px 0; font-size: 1.5rem; }
-        .tag { background: rgba(0, 255, 65, 0.1); color: var(--main-green); padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
-        .date { font-size: 0.8rem; color: #666; display: block; margin-bottom: 10px; }
-        .snippet { color: #aaa; font-size: 1rem; }
-
-        /* Alt Bilgi */
-        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #444; font-size: 0.8rem; }
+        /* Form Alanı */
+        .input-group { margin-top: 30px; }
+        input[type="email"] { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #333; padding: 15px; color: var(--neon-green); font-family: inherit; font-size: 1rem; border-radius: 3px; outline: none; margin-bottom: 15px; }
+        input[type="email"]:focus { border-color: var(--neon-green); }
+        .btn { width: 100%; background: var(--neon-green); color: #000; border: none; padding: 15px; font-weight: bold; cursor: pointer; font-family: inherit; text-transform: uppercase; transition: 0.3s; }
+        .btn:hover { background: #fff; box-shadow: 0 0 20px var(--neon-green); }
         
-        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        .footer-links { margin-top: 30px; font-size: 0.7rem; color: #444; }
+        .blink { animation: blinker 1s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="logo">T-LOGIX <span>TR</span></div>
-    <div class="status-bar">
-        <span class="online-dot">●</span> SİSTEM ÇEVRİMİÇİ / SYSTEM ONLINE | GLOBAL EXCLUSIVE
-    </div>
-</header>
-
-<div class="container">
-    <div class="language-switcher">TR | EN</div>
-
-    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/project-titan-leaked.html'">
-        <span class="date">22 MART 2026</span>
-        <span class="tag">ÖZEL ANALİZ</span>
-        <h2>Nvidia'nın Korkulu Rüyası: Project Titan Sızdı!</h2>
-        <p class="snippet">Küresel çip krizine ve Nvidia'nın pazardaki mutlak hakimiyetine son verecek gizli bir ittifak kuruldu. Project Titan kod adlı yeni nesil NPU mimarisi...</p>
+<div class="terminal">
+    <div class="header">
+        <div class="logo">T-LOGIX <span style="color:white">TR</span></div>
+        <div class="status-text">SİSTEM: ÇEVRİMİÇİ <span class="blink">_</span></div>
     </div>
 
-    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/the-end-of-screens-apple-and-openai.html'">
-        <span class="date">19 MART 2026</span>
-        <span class="tag">GELECEK ANALİZİ</span>
-        <h2>Ekranlar Tarih mi Oluyor? Apple ve OpenAI: "Vision Lite"</h2>
-        <p class="snippet">Fiziksel ekranların tamamen ortadan kalkacağı bir geleceğe uyandık. "Vision Lite" projesi doğrudan ChatGPT-5 mimarisiyle entegre çalışan bir yapay zeka gözü olacak.</p>
+    <div class="description">
+        > T-Logix Teknoloji Analiz Birimi'ne hoş geldiniz.<br>
+        > En son donanım sızıntıları ve özel raporlar doğrudan e-posta adresinize iletilir.
     </div>
 
-    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/nvidia-tegra-ai-x-leaked.html'">
-        <span class="date">19 MART 2026</span>
-        <span class="tag">DONANIM HABER</span>
-        <h2>Mobil İşlemci Savaşları: NVIDIA Tegra AI-X</h2>
-        <p class="snippet">Ekran kartı devi NVIDIA, akıllı telefonlar için geliştirdiği yerleşik yapay zeka işlemcisini sızdırdı! Mobil pazarda taşlar yerinden oynuyor.</p>
+    <div class="input-group">
+        <form action="mailto:tlogixtr.iletisim@gmail.com" method="post" enctype="text/plain">
+            <input type="email" name="Abone_Email" placeholder="E-POSTA ADRESİNİZİ TANIMLAYIN..." required>
+            <button type="submit" class="btn">BÜLTENE ABONE OL</button>
+        </form>
     </div>
 
+    <div class="footer-links">
+        © 2026 T-LOGIX // APACHE LICENSE 2.0 // ANKARA MERKEZLİ OPERASYON
+    </div>
 </div>
-
-<footer>
-    © 2026 T-LOGIX TR | BAĞIMSIZ TEKNOLOJİ ANALİZ PORTALI <br>
-    Apache License 2.0 ile korunmaktadır. | İletişim: tlogixtr.iletisim@gmail.com
-</footer>
 
 </body>
 </html>
