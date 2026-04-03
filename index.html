@@ -5,48 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-Logix TR | Kayıt Terminali</title>
     <style>
-        :root { --neon-green: #00ff41; --deep-black: #050505; }
-        body { background: var(--deep-black); color: #fff; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; overflow: hidden; }
-        .terminal { width: 90%; max-width: 600px; border: 1px solid #222; background: #0a0a0a; padding: 30px; box-shadow: 0 0 40px rgba(0, 255, 65, 0.1); border-radius: 5px; }
-        .header { border-bottom: 1px solid #333; padding-bottom: 15px; margin-bottom: 20px; }
-        .logo { color: var(--neon-green); font-size: 2rem; font-weight: bold; letter-spacing: 5px; }
-        .status-text { color: #555; font-size: 0.8rem; text-transform: uppercase; margin-top: 5px; }
-        .description { color: #aaa; font-size: 0.9rem; line-height: 1.6; margin: 25px 0; }
-        
-        /* Form Alanı */
-        .input-group { margin-top: 30px; }
-        input[type="email"] { width: 100%; box-sizing: border-box; background: #111; border: 1px solid #333; padding: 15px; color: var(--neon-green); font-family: inherit; font-size: 1rem; border-radius: 3px; outline: none; margin-bottom: 15px; }
-        input[type="email"]:focus { border-color: var(--neon-green); }
-        .btn { width: 100%; background: var(--neon-green); color: #000; border: none; padding: 15px; font-weight: bold; cursor: pointer; font-family: inherit; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background: #fff; box-shadow: 0 0 20px var(--neon-green); }
-        
-        .footer-links { margin-top: 30px; font-size: 0.7rem; color: #444; }
-        .blink { animation: blinker 1s linear infinite; }
-        @keyframes blinker { 50% { opacity: 0; } }
+        /* T-Logix Kurumsal Terminal Teması */
+        :root { 
+            --neon-green: #00ff41; 
+            --deep-black: #050505; 
+            --card-bg: #0a0a0a;
+        }
+
+        * { box-sizing: border-box; }
+
+        body { 
+            background-color: var(--deep-black); 
+            color: #ffffff; 
+            font-family: 'Courier New', Courier, monospace; 
+            margin: 0; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            overflow: hidden; 
+        }
+
+        .terminal-container { 
+            width: 95%; 
+            max-width: 600px; 
+            border: 1px solid #222; 
+            background: var(--card-bg); 
+            padding: 40px; 
+            box-shadow: 0 0 50px rgba(0, 255, 65, 0.05); 
+            border-radius: 8px; 
+            text-align: center;
+        }
+
+        .header { 
+            border-bottom: 1px solid #333; 
+            padding-bottom: 20px; 
+            margin-bottom: 30px; 
+        }
+
+        .logo { 
+            color: var(--neon-green); 
+            font-size: 2.5rem; 
+            font-weight: bold; 
+            letter-spacing: 6px; 
+            text-transform: uppercase;
+        }
+
+        .logo span { color: #ffffff; }
+
+        .status-bar { 
+            font-size: 0.7rem; 
+            color: #555; 
+            margin-top: 10px; 
+            letter-spacing: 2px;
+        }
+
+        .online-blink { 
+            color: var(--neon-green); 
+            animation: blink 1s infinite; 
+        }
+
+        .description { 
+            color: #888; 
+            font-size: 0.9rem; 
+            line-height: 1.6; 
+            margin-bottom: 40px; 
+            text-align: left;
+            border-left: 3px solid var(--neon-green);
+            padding-left: 15px;
+        }
+
+        /* Buton Tasarımı */
+        .register-btn { 
+            display: block; 
+            width: 100%; 
+            background: var(--neon-green); 
+            color: #000000; 
+            border: none; 
+            padding: 20px; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            text-decoration: none; 
+            border-radius: 4px; 
+            transition: 0.4s all; 
+            font-family: inherit;
+            text-transform: uppercase;
+        }
+
+        .register-btn:hover { 
+            background: #ffffff; 
+            box-shadow: 0 0 30px var(--neon-green); 
+            transform: translateY(-3px);
+        }
+
+        .footer { 
+            margin-top: 40px; 
+            font-size: 0.65rem; 
+            color: #333; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+        }
+
+        @keyframes blink { 
+            0% { opacity: 1; } 
+            50% { opacity: 0; } 
+            100% { opacity: 1; } 
+        }
+
+        /* Mobil Uyum */
+        @media (max-width: 480px) {
+            .terminal-container { padding: 25px; }
+            .logo { font-size: 1.8rem; }
+        }
     </style>
 </head>
 <body>
 
-<div class="terminal">
+<div class="terminal-container">
     <div class="header">
-        <div class="logo">T-LOGIX <span style="color:white">TR</span></div>
-        <div class="status-text">SİSTEM: ÇEVRİMİÇİ <span class="blink">_</span></div>
+        <div class="logo">T-LOGIX <span>TR</span></div>
+        <div class="status-bar">
+            <span class="online-blink">●</span> SİSTEM DURUMU: ŞİFRELİ ERİŞİM AKTİF
+        </div>
     </div>
 
     <div class="description">
-        > T-Logix Teknoloji Analiz Birimi'ne hoş geldiniz.<br>
-        > En son donanım sızıntıları ve özel raporlar doğrudan e-posta adresinize iletilir.
+        > T-Logix Özel Analiz Birimi Giriş Terminali.<br>
+        > Project Titan, Vision Lite ve Nvidia sızıntı raporları sadece kayıtlı abonelere iletilir.<br>
+        > Erişim yetkisi almak için terminale kayıt olun.
     </div>
 
-    <div class="input-group">
-        <form action="mailto:tlogixtr.iletisim@gmail.com" method="post" enctype="text/plain">
-            <input type="email" name="Abone_Email" placeholder="E-POSTA ADRESİNİZİ TANIMLAYIN..." required>
-            <button type="submit" class="btn">BÜLTENE ABONE OL</button>
-        </form>
-    </div>
+    <a href="https://forms.gle/A5EVqw9Ag7B3eqNn6" target="_blank" class="register-btn">
+        TERMİNALE KAYIT OL
+    </a>
 
-    <div class="footer-links">
-        © 2026 T-LOGIX // APACHE LICENSE 2.0 // ANKARA MERKEZLİ OPERASYON
+    <div class="footer">
+        © 2026 T-LOGIX TR // OPERASYON MERKEZİ // APACHE LICENSE 2.0
     </div>
 </div>
 
