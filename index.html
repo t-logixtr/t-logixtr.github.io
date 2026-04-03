@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T-Logix TR | Teknoloji Analiz Merkezi</title>
+    <style>
+        /* T-Logix Kurumsal Teması */
+        :root { --main-green: #00ff41; --bg-dark: #080808; --card-bg: #121212; }
+        body { background-color: var(--bg-dark); color: #e0e0e0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; margin: 0; line-height: 1.6; }
+        
+        /* Üst Menü ve Logo */
+        header { background: #111; padding: 20px; border-bottom: 2px solid var(--main-green); text-align: center; position: sticky; top: 0; z-index: 100; }
+        .logo { font-size: 2.2rem; font-weight: 800; letter-spacing: 2px; color: var(--main-green); text-transform: uppercase; }
+        .logo span { color: #fff; }
+        .status-bar { font-size: 0.8rem; color: #888; margin-top: 5px; font-family: monospace; }
+        .online-dot { color: var(--main-green); animation: blink 1.5s infinite; }
+
+        /* İçerik Alanı */
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .language-switcher { text-align: right; margin-bottom: 20px; font-size: 0.9rem; font-weight: bold; color: var(--main-green); }
+
+        /* Haber Kartları */
+        .article-card { background: var(--card-bg); border: 1px solid #222; border-radius: 8px; padding: 25px; margin-bottom: 25px; transition: 0.3s; position: relative; overflow: hidden; cursor: pointer; }
+        .article-card:hover { border-color: var(--main-green); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0, 255, 65, 0.1); }
+        .article-card h2 { color: #fff; margin: 10px 0; font-size: 1.5rem; }
+        .tag { background: rgba(0, 255, 65, 0.1); color: var(--main-green); padding: 3px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; text-transform: uppercase; }
+        .date { font-size: 0.8rem; color: #666; display: block; margin-bottom: 10px; }
+        .snippet { color: #aaa; font-size: 1rem; }
+
+        /* Alt Bilgi */
+        footer { text-align: center; padding: 40px; border-top: 1px solid #222; color: #444; font-size: 0.8rem; }
+        
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">T-LOGIX <span>TR</span></div>
+    <div class="status-bar">
+        <span class="online-dot">●</span> SİSTEM ÇEVRİMİÇİ / SYSTEM ONLINE | GLOBAL EXCLUSIVE
+    </div>
+</header>
+
+<div class="container">
+    <div class="language-switcher">TR | EN</div>
+
+    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/project-titan-leaked.html'">
+        <span class="date">22 MART 2026</span>
+        <span class="tag">ÖZEL ANALİZ</span>
+        <h2>Nvidia'nın Korkulu Rüyası: Project Titan Sızdı!</h2>
+        <p class="snippet">Küresel çip krizine ve Nvidia'nın pazardaki mutlak hakimiyetine son verecek gizli bir ittifak kuruldu. Project Titan kod adlı yeni nesil NPU mimarisi...</p>
+    </div>
+
+    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/the-end-of-screens-apple-and-openai.html'">
+        <span class="date">19 MART 2026</span>
+        <span class="tag">GELECEK ANALİZİ</span>
+        <h2>Ekranlar Tarih mi Oluyor? Apple ve OpenAI: "Vision Lite"</h2>
+        <p class="snippet">Fiziksel ekranların tamamen ortadan kalkacağı bir geleceğe uyandık. "Vision Lite" projesi doğrudan ChatGPT-5 mimarisiyle entegre çalışan bir yapay zeka gözü olacak.</p>
+    </div>
+
+    <div class="article-card" onclick="window.location.href='https://t-logixtr.blogspot.com/2026/03/nvidia-tegra-ai-x-leaked.html'">
+        <span class="date">19 MART 2026</span>
+        <span class="tag">DONANIM HABER</span>
+        <h2>Mobil İşlemci Savaşları: NVIDIA Tegra AI-X</h2>
+        <p class="snippet">Ekran kartı devi NVIDIA, akıllı telefonlar için geliştirdiği yerleşik yapay zeka işlemcisini sızdırdı! Mobil pazarda taşlar yerinden oynuyor.</p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 T-LOGIX TR | BAĞIMSIZ TEKNOLOJİ ANALİZ PORTALI <br>
+    Apache License 2.0 ile korunmaktadır. | İletişim: tlogixtr.iletisim@gmail.com
+</footer>
+
+</body>
+</html>
