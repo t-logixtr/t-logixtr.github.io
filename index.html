@@ -5,36 +5,157 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T-Logix TR | Kayıt Terminali</title>
     <style>
-        :root { --neon-green: #00ff41; --deep-black: #050505; }
-        body { background: var(--deep-black); color: #fff; font-family: 'Courier New', Courier, monospace; margin: 0; display: flex; align-items: center; justify-content: center; height: 100vh; text-align: center; }
-        .terminal { width: 95%; max-width: 550px; border: 1px solid #222; background: #0a0a0a; padding: 40px; box-shadow: 0 0 50px rgba(0, 255, 65, 0.1); border-radius: 8px; }
-        .logo { color: var(--neon-green); font-size: 2.2rem; font-weight: bold; letter-spacing: 4px; margin-bottom: 5px; }
-        .status { color: #555; font-size: 0.75rem; margin-bottom: 30px; letter-spacing: 1px; }
-        .info { color: #aaa; font-size: 0.95rem; line-height: 1.6; margin-bottom: 35px; text-align: left; border-left: 2px solid var(--neon-green); padding-left: 15px; }
-        .btn { display: inline-block; width: 100%; background: var(--neon-green); color: #000; border: none; padding: 18px; font-weight: bold; cursor: pointer; text-decoration: none; border-radius: 4px; transition: 0.3s; font-family: inherit; text-transform: uppercase; }
-        .btn:hover { background: #fff; box-shadow: 0 0 25px var(--neon-green); transform: translateY(-3px); }
-        .footer { margin-top: 40px; font-size: 0.7rem; color: #333; letter-spacing: 1px; }
+        :root {
+            --neon-blue: #00d2ff;
+            --neon-purple: #9d50bb;
+            --bg-dark: #000000;
+        }
+
+        body {
+            background: radial-gradient(circle at center, #0a0a1a 0%, #000 100%);
+            color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Logodaki dış neon halka efekti */
+        .outer-glow {
+            position: absolute;
+            width: 550px;
+            height: 550px;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg at 50% 50%, var(--neon-blue) 0%, var(--neon-purple) 50%, var(--neon-blue) 100%);
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .glass-card {
+            width: 90%;
+            max-width: 450px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo-area {
+            margin-bottom: 25px;
+        }
+
+        .logo-text {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .url-text {
+            color: var(--neon-blue);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            background: rgba(0, 210, 255, 0.1);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(157, 80, 187, 0.3);
+            text-align: left;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #ddd;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 15px;
+            transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+            box-sizing: border-box;
+            text-transform: uppercase;
+            box-shadow: 0 10px 20px rgba(157, 80, 187, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .footer {
+            margin-top: 35px;
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
 
-<div class="terminal">
-    <div class="logo">T-LOGIX <span style="color:white">TR</span></div>
-    <div class="status">SİSTEM DURUMU: ŞİFRELİ ERİŞİM AKTİF</div>
+    <div class="outer-glow"></div>
 
-    <div class="info">
-        > ÖZEL ANALİZ BİRİMİNE GİRİŞ YAPMAK ÜZERESİNİZ.<br>
-        > EN YENİ TEKNOLOJİ HABERLERİ DOĞRUDAN E-POSTA İLE İLETİLİR.
+    <div class="glass-card">
+        <div class="logo-area">
+            <div class="logo-text">T-LOGIX</div>
+            <span class="url-text">t-logixtr.blogspot.com</span>
+        </div>
+
+        <div class="status-badge">TEKNOLOJİ VE İNOVASYON PORTALI</div>
+
+        <div class="content">
+            > Özel analiz birimine giriş yapmak üzeresiniz.<br>
+            > En yeni teknoloji haberleri doğrudan e-posta ile iletilir.
+        </div>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSevsTZ4Y8E2gWBl9emM37vCCGdeO0dYkY-x3VRvNMP5NS2roA/viewform?usp=header" target="_blank" class="btn">
+            Terminale Kayıt Ol
+        </a>
+
+        <div class="footer">
+            © 2026 T-LOGIX TR // GÜVENLİ BAĞLANTI
+        </div>
     </div>
-
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSevsTZ4Y8E2gWBl9emM37vCCGdeO0dYkY-x3VRvNMP5NS2roA/viewform?usp=header" target="_blank" class="btn">
-        TERMİNALE KAYIT OL
-    </a>
-
-    <div class="footer">
-        © 2026 T-LOGIX TR // APACHE LICENSE 2.0 // GÜVENLİ BAĞLANTI
-    </div>
-</div>
 
 </body>
 </html>
